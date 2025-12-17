@@ -14,6 +14,6 @@ const human = {
     }
 }
 console.log(human.backpack.space.money);
-console.log(human.age)
+console.log(human.age);
 
-console.log(human.full_name);
+human.full_name();
