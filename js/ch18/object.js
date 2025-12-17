@@ -2,7 +2,7 @@
 자바스크립트에서 객체를 만드는 방법
 
 객체는 (속성)과 (메소드)로 이루어질 수 있다.
-키(속성/쉽게 생각하자면=변수):값
+키(쉽게 생각하자면=변수):값 (속성)
 key: value(속성값 or 함수(function))
 
 여러 정보를 한 묶음으로 나타낼 수 있다.
@@ -38,7 +38,6 @@ console.log('person1.age:', person1.age);
 console.log('person2.age:', person2.age);
 
 person1.run();
-
 
 const person3 = {
     name: '김철수',
