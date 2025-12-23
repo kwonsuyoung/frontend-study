@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon Editor</title>
+</head>
+<body>
+    <h1>ICON EDITOR</h1>
+    <div id="editor"></div> <!---->
+    <script>
+        //엘리먼트 생성 함수
+        function makeElement(name, attributes){
+            const node = document.createElement(name);
+            if(attributes){ // 객체의 주소값 있음. true 판단
+                /*boolean (true, false)로 용인되는 게 있음
+                    문자열은 ''(빈문자열) > false, !(빈 문자열) > true로 처리
+                    숫자 0 > false, !0 > true
+                    주소값 > true, undefined/null > false
+                */
+                for (const item in attributes){
+                    // for in 객체가 가지고 있는 속성명을 하나씩 준다
+                    node.setAttribute(item,attributes[item]);
+                    // add~ 추가 개념
+                    // set~ 기존값 지우고 새로 만드는 개념
+                }
+            }
+            return node;
+        }
+        const $editor = document.querySelector('#editor');
+        
+        const attributes = {
+            'type':'number',
+            'value':'100'
+        }
+        const temp = makeElement('input', attributes);
+        $editor.append(temp);
+    </script>
+</body>
+</html>
