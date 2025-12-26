@@ -10,14 +10,27 @@
 <body>
     <div id="container"></div>
     <script>
+        const getData = page => {
+            //한번돌리고 땡이 안되게 함수 안에 집어넣음
+            fetch(`https://picsum.photos/v2/list?limit=50&page=${page}`) // 함수들의 호출부분
+                .then(res => res.json()) // json() 문자열인 json을 객체로 만든것. 역직렬화
+                .then(json => procItems(json))//json타입은 배열, 안에 {}는 객체
+                .catch(err => {
+                    alert('에러 발생!');
+                    console.log(err);
+                });
+        };
+        getData(2);
 
-        fetch('https://picsum.photos/v2/list') // 함수들의 호출부분
-            .then(res => res.json()) // json() 문자열인 json을 객체로 만든것. 역직렬화
-            .then(json => procItems(json))//json타입은 배열, 안에 {}는 객체
-            .catch(err => {
-                alert('에러 발생!');
-                console.log(err);
-            });
+
+        //쿼리스트링 
+        //query-string
+        //파라미터
+        //?key=value&key=value
+        //서버는 약속된 key값 말고 value만 보고 싶다
+        //페이징기술 
+        // https://picsum.photos/v2/list?page=2&limit=100 100개씩 쪼갠 것에 2번째 페이지를 주세요
+
 
         const procItems = list => {
             const $container = document.querySelector("#container");
@@ -36,18 +49,6 @@
                 `;
             return div;
         }
-
-        /////////////////////// 객체와 문자열
-        const obj = {
-            name: '홍길동',
-            age: 22,
-            height: 165.4
-        }
-        console.log('obj:', obj);
-        const jsonObj = JSON.stringify(obj); //직렬화 // 전송을 위해 JSON 문자열로 변경한 것
-        console.log('jsonObj:', jsonObj);
-        const obj2 = JSON.parse(jsonObj); //역직렬화
-        console.log('obj2:', obj2);
 
     </script>
 </body>
