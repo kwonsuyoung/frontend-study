@@ -6,10 +6,7 @@
 />
 </a>
 
-<div align="center">
-  <img src="https://capsule-render.vercel.app/render?type=bars&color=auto&text=Frontend%20Study&fontSize=70" />
-  <p>반갑습니다! 공부한 내용을 기록하는 저장소입니다.</p>
-</div>
+
 
 ### 🛠 Tech Stack
 
@@ -26,15 +23,12 @@
 - 마크다운 문법 익히기
 </details>
 
-<div align="center">
-  <img src="https://capsule-render.vercel.app/render?type=waving&color=auto&height=200&section=header&text=Frontend%20Study&fontSize=80" />
-</div>
 
 ## 📂 학습 저장소 가이드
 
 | 카테고리      |   기술    | 링크                      | 비고          |
 | :------------ | :-------: | :------------------------ | :------------ |
-| **Basic**     | HTML/CSS  | [바로가기](k78sy/frontend-study/js)   | 레이아웃 기초 |
+| **Basic**     | HTML/CSS  | [바로가기](/k78sy/frontend-study/js)   | 레이아웃 기초 |
 | **Script**    | JS/jQuery | [바로가기](./javascript)  | DOM 조작법    |
 | **Framework** |  Vue.js   | [바로가기](./vue-project) | 컴포넌트 설계 |
 
