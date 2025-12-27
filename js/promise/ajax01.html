@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax01.html</title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script>
+
+        fetch('https://picsum.photos/v2/list') // 함수들의 호출부분
+            .then(res => res.json()) // json() 문자열인 json을 객체로 만든것. 역직렬화
+            .then(json => procItems(json))//json타입은 배열, 안에 {}는 객체
+            .catch(err => {
+                alert('에러 발생!');
+                console.log(err);
+            });
+
+        const procItems = list => {
+            const $container = document.querySelector("#container");
+            list.forEach(item => { //배열 안에 있는 객체의 주소값이 하나씩 들어옴
+                const elem = makeItem(item);
+                $container.append(elem);
+            })
+        }
+        const makeItem = data => {
+            console.log('data:', data);
+            const div = document.createElement('div');
+            div.className = 'aaa bbb';
+            div.innerHTML = `
+                    <img src="https://picsum.photos/id/${data.id}/${parseInt(data.width * 0.1)}/${parseInt(data.height * 0.1)}" alt="${data.author}" >
+                    <div>${data.author}</div>
+                `;
+            return div;
+        }
+
+        /////////////////////// 객체와 문자열
+        const obj = {
+            name: '홍길동',
+            age: 22,
+            height: 165.4
+        }
+        console.log('obj:', obj);
+        const jsonObj = JSON.stringify(obj); //직렬화 // 전송을 위해 JSON 문자열로 변경한 것
+        console.log('jsonObj:', jsonObj);
+        const obj2 = JSON.parse(jsonObj); //역직렬화
+        console.log('obj2:', obj2);
+
+    </script>
+</body>
+
+</html>
