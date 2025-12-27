@@ -40,12 +40,12 @@
     computed: {
         computedMethod: function () {
             console.log('computed function call......')
-            return this.mag.split("").reverse().join("")
+            return this.msg.split("").reverse().join("")
             }
     },
     methods: {
         methodMethod: function () {
-            console.lof('method function call.....')
+            console.log('method function call.....')
             return this.msg.split("").reverse().join("")
         }
     },
